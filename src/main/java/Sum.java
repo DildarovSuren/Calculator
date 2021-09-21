@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Sum {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("##.####");
+        DecimalFormat df = new DecimalFormat("##.####"); //Используем данный метод для форматирования ответа в консоли
         System.out.println("Введите первое число:");
         float a = in.nextFloat();
         System.out.println("Введите второе число:");
@@ -11,7 +11,7 @@ public class Sum {
         System.out.println("Введите арифметическую операцию и нажмите ENTER:");
         String c = in.next();
 
-        if(a == 0) {
+        if(a == 0) {     //Объявляем условие, чтобы взять во внимание случай с делением на 0
             switch (c) {
                 case "/": System.out.println("Ошибка.На ноль делить нельзя");
                     break;
