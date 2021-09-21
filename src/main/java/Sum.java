@@ -2,6 +2,9 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Sum {
     public static void main(String[] args) {
+        /**
+         * Реализуем программу-калькулятор с простыми арифметичекими операциями
+         */
         Scanner in = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("##.####"); //Используем данный метод для форматирования ответа в консоли
         System.out.println("Введите первое число:");
