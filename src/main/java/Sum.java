@@ -1,4 +1,3 @@
-import java.text.DecimalFormat;
 import java.util.Scanner;
 public class Sum {
     public static void main(String[] args) {
@@ -6,39 +5,50 @@ public class Sum {
          * Реализуем программу-калькулятор с простыми арифметичекими операциями
          */
         Scanner in = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("##.####"); //Используем данный метод для форматирования ответа в консоли
-        System.out.println("Введите первое число:");
-        float a = in.nextFloat();
-        System.out.println("Введите второе число:");
-        float b = in.nextFloat();
-        System.out.println("Введите арифметическую операцию и нажмите ENTER:");
-        String c = in.next();
+        System.out.println("Программа Калькулятор запущена");
+        System.out.println("Введите первое число: ");
+        double first = in.nextDouble();
+        System.out.println("Введите действие: ");
+        String action = in.next();
+        System.out.println("Введите второе число: ");
+        double second = in.nextInt();
 
-        if(a == 0) {     //Объявляем условие, чтобы взять во внимание случай с делением на 0
-            switch (c) {
-                case "/": System.out.println("Ошибка.На ноль делить нельзя");
-                    break;
-                case "*": System.out.println(df.format(a * b));
-                    break;
-                case "+": System.out.println(df.format(a + b));
-                    break;
-                case "-": System.out.println(df.format(a - b));
-                    break;
-                default: System.out.println("Введена некорректная арифметическая операция! Начните заново!");
-                    break;
-            }
+        switch (action) {
+            case "/":
+                calcSlash(first, second);
+                break;
+            case "*":
+                calcX(first, second);
+                break;
+            case "+":
+                calcSum(first, second);
+                break;
+            case "-":
+                calcDel(first, second);
+                break;
+            default:
+                System.out.println("Введена некорректная арифметическая операция! Начните заново!");
+                break;
+        }
+    }
+
+    public static void calcSum(double first, double second) { // Сложение
+        System.out.printf("%.4f", (first + second));
+    }
+
+    public static void calcDel(double first, double second) { // Вычитание
+        System.out.printf("%.4f", (first - second));
+    }
+
+    public static void calcX(double first, double second) { // Умножение
+        System.out.printf("%.4f", (first * second));
+    }
+
+    public static void calcSlash(double first, double second) { // Деление
+        if (second == 0) {
+            System.out.println("Ошибка. На ноль делить нельзя");
         } else {
-            switch (c) {
-            case "/": System.out.println(df.format(a / b));
-                break;
-            case "*": System.out.println(df.format(a * b));
-                break;
-            case "+": System.out.println(df.format(a + b));
-                break;
-            case "-": System.out.println(df.format(a - b));
-                break;
-            default: System.out.println("Введена некорректная арифметическая операция! Начните заново!");
-                break;
-        } }
+            System.out.printf("%.4f", (first / second));
+        }
     }
 }
